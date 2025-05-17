@@ -17,10 +17,10 @@ public class EmployeeDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 employee = new Employee();
-                employee.setEmployeeId(rs.getInt("employee_id"));
-                employee.setName(rs.getString("employee_name"));
-                employee.setEmail(rs.getString("employee_email"));
-                employee.setPassword(rs.getString("employee_password"));
+                employee.setEmployee_Id(rs.getInt("employee_id"));
+                employee.setEmployee_name(rs.getString("employee_name"));
+                employee.setEmployee_email(rs.getString("employee_email"));
+                employee.setEmployee_password(rs.getString("employee_password"));
             }
         } catch (Exception e) {
             e.printStackTrace();

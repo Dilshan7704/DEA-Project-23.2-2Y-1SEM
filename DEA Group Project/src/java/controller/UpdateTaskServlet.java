@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Task;
+import java.time.LocalDate;
 
 @WebServlet(name = "UpdateTaskServlet", urlPatterns = {"/UpdateTaskServlet"})
 public class UpdateTaskServlet extends HttpServlet {
@@ -17,15 +18,51 @@ public class UpdateTaskServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int taskId = Integer.parseInt(request.getParameter("taskId"));
-        Task task = new Task();
-        //task = taskDAO.getTaskById(taskId);
+        try {
+            int taskId = Integer.parseInt(request.getParameter("taskId"));
+            
+            TaskDAO taskDAO = new TaskDAO(); 
+            Task task = taskDAO.getTaskById(taskId);
+
+            if (task != null) {
+                request.setAttribute("task", task);
+                request.getRequestDispatcher("Admin/editTask.jsp").forward(request, response); 
+            } else {
+                response.sendRedirect("taskList.jsp?error=TaskNotFound");
+            }
+        }
+        catch (Exception ex) {
+            request.setAttribute("errorMessage", ex.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        try {
+            int taskId = Integer.parseInt(request.getParameter("taskId"));
+            String taskName = request.getParameter("taskName");
+            String taskDescription = request.getParameter("taskDescription");
+            String taskStatus = request.getParameter("taskStatus");
+            LocalDate taskDeadline = LocalDate.parse(request.getParameter("taskDeadline"));
+
+            Task task = new Task();
+            task.setTask_id(taskId);
+            task.setTask_name(taskName);
+            task.setTask_description(taskDescription);
+            task.setTask_status(taskStatus);
+            task.setTask_deadline(taskDeadline);
+
+            TaskDAO taskDAO = new TaskDAO();
+            taskDAO.updateTask(task);
+
+            response.sendRedirect("Admin/TaskList.jsp");
+        }
+        catch (Exception ex) {
+            request.setAttribute("errorMessage", ex.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     @Override

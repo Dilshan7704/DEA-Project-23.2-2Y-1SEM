@@ -46,12 +46,12 @@ public class TaskServlet extends HttpServlet {
             LocalDate date = LocalDate.parse(request.getParameter("deadline"));
 
             Task task = new Task();
-            task.setTaskName(name);
-            task.setTaskDescription(description);
-            task.setProjectId(projectId);
-            task.setEmployeeId(employeeId);
-            task.setTaskStatus(status);
-            task.setTaskDeadline(date);
+            task.setTask_name(name);
+            task.setTask_description(description);
+            task.setProject_id(projectId);
+            task.setEmployee_id(employeeId);
+            task.setTask_status(status);
+            task.setTask_deadline(date);
             
             taskDAO.insertTask(task);
             response.sendRedirect("TaskServlet");

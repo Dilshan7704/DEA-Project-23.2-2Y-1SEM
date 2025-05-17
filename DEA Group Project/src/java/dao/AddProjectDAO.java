@@ -1,17 +1,11 @@
-package com.project.dao;
+package dao;
 
-import com.project.model.Client;
-import com.project.model.Project;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import model.Client;
+import model.Project;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.*;
+
 
 
 public class AddProjectDAO {
@@ -33,12 +27,13 @@ public class AddProjectDAO {
         PreparedStatement statement = conn.prepareStatement(query);
         statement.setString(1, project.getProject_name());
         statement.setString(2, project.getProject_description());
-        statement.setString(3, project.getProject_startdate());
-        statement.setString(4, project.getProject_enddate());
+        statement.setObject(3, project.getProject_startdate());
+        statement.setObject(4, project.getProject_enddate());
         statement.setString(5, project.getStatus());
-        statement.setInt(6, project.getProject_budget());
+        statement.setFloat(6, project.getProject_budget());
         statement.setInt(7, project.getClient_id());
-
+        
+        
         // Execute Update
         rowinserted = statement.executeUpdate();
 
@@ -73,8 +68,8 @@ while (resultSet.next()) {
     int id = resultSet.getInt(1);
     String projectName = resultSet.getString(2);
     String projectDescription = resultSet.getString(3);
-    String startDate = resultSet.getString(4);
-    String endDate = resultSet.getString(5);
+      LocalDate startDate = resultSet.getDate("project_startdate").toLocalDate();
+    LocalDate endDate = resultSet.getDate("project_enddate").toLocalDate();
     String status = resultSet.getString(6);
     int budget = resultSet.getInt(7);
     int clientId = resultSet.getInt(8);
@@ -145,10 +140,10 @@ while (resultSet.next()) {
             int id = resultSet.getInt("project_id");
             String projectName = resultSet.getString("project_name");
             String projectDescription = resultSet.getString("project_description");
-            String startDate = resultSet.getString("project_startdate");
-            String endDate = resultSet.getString("project_enddate");
+            LocalDate startDate = resultSet.getDate("project_startdate").toLocalDate();
+            LocalDate endDate = resultSet.getDate("project_enddate").toLocalDate();
             String status = resultSet.getString("status");
-            int budget = resultSet.getInt("project_budget");
+            float budget = resultSet.getInt("project_budget");
             int clientId = resultSet.getInt("client_id");
 
             project = new Project(id, projectName, projectDescription, startDate, endDate, status, budget, clientId);

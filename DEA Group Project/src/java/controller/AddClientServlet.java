@@ -33,10 +33,10 @@ public class AddClientServlet extends HttpServlet {
         String password=request.getParameter("password");
         
         Client  Client1=new Client();
-        Client1.setName(name);
-        Client1.setEmail(email);
-        Client1.setPhone_no(phone_no);
-        Client1.setPassword(password);
+        Client1.setClient_name(name);
+        Client1.setClient_email(email);
+        Client1.setClient_phoneno(phone_no);
+        Client1.setClient_password(password);
         
         clientDAO DAO=new clientDAO();
         DAO.insertClient(Client1);

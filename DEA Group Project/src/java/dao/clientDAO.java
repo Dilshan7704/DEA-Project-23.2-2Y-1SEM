@@ -19,10 +19,10 @@ public class clientDAO {
             Connection conn =DB.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             
-            ps.setString(1, Client.getName());
-            ps.setString(2, Client.getEmail());
-            ps.setString(3, Client.getPhone_no());
-            ps.setString(4, Client.getPassword());
+            ps.setString(1, Client.getClient_name());
+            ps.setString(2, Client.getClient_email());
+            ps.setString(3, Client.getClient_phoneno());
+            ps.setString(4, Client.getClient_password());
             
             int add = ps.executeUpdate();
             if (add > 0) {
@@ -47,11 +47,11 @@ public class clientDAO {
             
             while (rs.next()) {
                 Client client = new Client();
-                client.setId(rs.getInt("client_id")); 
-                client.setName(rs.getString("client_name")); 
-                client.setEmail(rs.getString("client_email"));  
-                client.setPhone_no(rs.getString("client_phoneno")); 
-                client.setPassword(rs.getString("client_password")); 
+                client.setClient_id(rs.getInt("client_id")); 
+                client.setClient_name(rs.getString("client_name")); 
+                client.setClient_email(rs.getString("client_email"));  
+                client.setClient_phoneno(rs.getString("client_phoneno")); 
+                client.setClient_password(rs.getString("client_password")); 
                 clients.add(client);
             }
         }
@@ -72,11 +72,11 @@ public class clientDAO {
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             client = new Client();
-            client.setId(rs.getInt("client_id"));
-            client.setName(rs.getString("client_name"));
-            client.setEmail(rs.getString("client_email"));
-            client.setPhone_no(rs.getString("client_phoneno"));
-            client.setPassword(rs.getString("client_password"));
+            client.setClient_id(rs.getInt("client_id"));
+            client.setClient_name(rs.getString("client_name"));
+            client.setClient_email(rs.getString("client_email"));
+            client.setClient_phoneno(rs.getString("client_phoneno"));
+            client.setClient_password(rs.getString("client_password"));
         }
     } catch (Exception e) {
         e.printStackTrace();
@@ -91,11 +91,11 @@ public boolean updateClient(Client client) {
         Connection conn = DB.getConnection();
         PreparedStatement ps = conn.prepareStatement(sql);
         
-        ps.setString(1, client.getName());
-        ps.setString(2, client.getEmail());
-        ps.setString(3, client.getPhone_no());
-        ps.setString(4, client.getPassword());
-        ps.setInt(5, client.getId());
+        ps.setString(1, client.getClient_name());
+        ps.setString(2, client.getClient_email());
+        ps.setString(3, client.getClient_phoneno());
+        ps.setString(4, client.getClient_password());
+        ps.setInt(5, client.getClient_id());
         
         int rowsAffected = ps.executeUpdate();
         if (rowsAffected > 0) {
@@ -137,11 +137,11 @@ public boolean deleteClient(int id) {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 client = new Client();
-                client.setId(rs.getInt("client_id"));
-                client.setName(rs.getString("client_name"));
-                client.setEmail(rs.getString("client_email"));
-                client.setPhone_no(rs.getString("client_phoneno"));
-                client.setPassword(rs.getString("client_password"));
+                client.setClient_id(rs.getInt("client_id"));
+                client.setClient_name(rs.getString("client_name"));
+                client.setClient_email(rs.getString("client_email"));
+                client.setClient_phoneno(rs.getString("client_phoneno"));
+                client.setClient_password(rs.getString("client_password"));
             }
         } catch (Exception e) {
             e.printStackTrace();

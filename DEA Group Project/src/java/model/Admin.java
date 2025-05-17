@@ -1,32 +1,34 @@
 package model;
 
 public class Admin {
-    private int adminId;
-    private String email;
-    private String password;
+
+    public int getAdmin_Id() {
+        return admin_Id;
+    }
+
+    public void setAdmin_Id(int admin_Id) {
+        this.admin_Id = admin_Id;
+    }
+
+    public String getAdmin_email() {
+        return admin_email;
+    }
+
+    public void setAdmin_email(String admin_email) {
+        this.admin_email = admin_email;
+    }
+
+    public String getAdmin_password() {
+        return admin_password;
+    }
+
+    public void setAdmin_password(String admin_password) {
+        this.admin_password = admin_password;
+    }
+    private int admin_Id;
+    private String admin_email;
+    private String admin_password;
 
     // Getters and Setters
-    public int getAdminId() {
-        return adminId;
-    }
-
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    
 }

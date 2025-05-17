@@ -1,7 +1,7 @@
 
 package controller;
 
-import com.project.dao.AddProjectDAO;
+import dao.AddProjectDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

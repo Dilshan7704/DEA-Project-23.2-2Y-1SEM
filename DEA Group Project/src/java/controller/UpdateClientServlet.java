@@ -23,11 +23,11 @@ public class UpdateClientServlet extends HttpServlet {
         String password = request.getParameter("password");
         
         Client client = new Client();
-        client.setId(id);
-        client.setName(name);
-        client.setEmail(email);
-        client.setPhone_no(phone_no);
-        client.setPassword(password);
+        client.setClient_id(id);
+        client.setClient_name(name);
+        client.setClient_email(email);
+        client.setClient_phoneno(phone_no);
+        client.setClient_password(password);
         
         clientDAO dao = new clientDAO();
         boolean isUpdated = dao.updateClient(client);

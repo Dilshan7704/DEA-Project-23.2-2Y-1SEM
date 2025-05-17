@@ -1,10 +1,11 @@
 package controller;
 
 
-import com.project.dao.AddProjectDAO;
-import com.project.model.Project;
+import dao.AddProjectDAO;
+import model.Project;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,8 +22,8 @@ public class AddProjectServlet extends HttpServlet {
         PrintWriter out = response.getWriter();  
         String projectname = request.getParameter("projectname");
         String projectdescription = request.getParameter("projectdescription");
-        String startdate = request.getParameter("startdate");
-        String enddate = request.getParameter("enddate");
+        LocalDate startdate = request.getParameter("startdate");
+        LocalDate enddate = request.getParameter("enddate");
         String status = request.getParameter("status");
         String budget = request.getParameter("budget");
         String client = request.getParameter("client");

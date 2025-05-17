@@ -1,64 +1,66 @@
 package model;
 
 public class Client {
+
+    public int getClient_id() {
+        return client_id;
+    }
+
+    public void setClient_id(int client_id) {
+        this.client_id = client_id;
+    }
+
+    public String getClient_name() {
+        return client_name;
+    }
+
+    public void setClient_name(String client_name) {
+        this.client_name = client_name;
+    }
+
+    public String getClient_email() {
+        return client_email;
+    }
+
+    public void setClient_email(String client_email) {
+        this.client_email = client_email;
+    }
+
+    public String getClient_phoneno() {
+        return client_phoneno;
+    }
+
+    public void setClient_phoneno(String client_phoneno) {
+        this.client_phoneno = client_phoneno;
+    }
+
+    public String getClient_password() {
+        return client_password;
+    }
+
+    public void setClient_password(String client_password) {
+        this.client_password = client_password;
+    }
     public Client(){
     
     }
     
     public Client(String name,String email,String phone_no,String password){
         
-        this.name=name;
-        this.email=email;
-        this.phone_no=phone_no;
-        this.password=password;
+        this.client_name=name;
+        this.client_email=email;
+        this.client_phoneno=phone_no;
+        this.client_password=password;
     }
     
     
-    public int getId() {
-        return id;
-    }
+    
+    private int client_id;
+    private String client_name;
+    private String client_email;
+    private String client_phoneno;
+    private String client_password;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone_no() {
-        return phone_no;
-    }
-
-    public void setPhone_no(String phone_no) {
-        this.phone_no = phone_no;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    private int id;
-    private String name;
-    private String email;
-    private String phone_no;
-    private String password;
-     
     
     
 }
