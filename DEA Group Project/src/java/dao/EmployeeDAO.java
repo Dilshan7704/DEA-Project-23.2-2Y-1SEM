@@ -76,11 +76,7 @@ public class EmployeeDAO {
         }
         return employees;
     }
-    
-    
- 
-    
-    
+
     public boolean deleteEmployeeById(int id) {
     String sql = "DELETE FROM employee WHERE id = ?";
     try {
@@ -99,8 +95,6 @@ public class EmployeeDAO {
     }
 }
 
-    
-    
     public boolean updateEmployee(int originalId, Employee emp) {
     String sql = "UPDATE employee SET employee_name=?, employee_email=?,employee_password=?, phone=?, department=?, profile_picture=? WHERE id=?";
     try {
@@ -124,7 +118,6 @@ public class EmployeeDAO {
         return false;
     }
 }
-    
     
     public Employee getEmployeeById(int id) throws SQLException {
     Employee employee = null;
