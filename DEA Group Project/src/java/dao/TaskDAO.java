@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Task;
+import util.DB;
 
 public class TaskDAO {
     private final String jdbcURL = "jdbc:mysql://localhost:3306/projectmanagementdb";
@@ -19,9 +20,9 @@ public class TaskDAO {
         String InsertTask = "INSERT INTO tasks (task_name, task_description, "
                 + "project_id, employee_id, task_status, task_deadline) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        
 
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        Connection conn = DB.getConnection();
         PreparedStatement stmt = conn.prepareStatement(InsertTask);
 
         stmt.setString(1, task.getTaskName());
@@ -39,9 +40,9 @@ public class TaskDAO {
         
         List<Task> taskList = new ArrayList<>();
         String getTasks = "select * from tasks where project_id = ?";
-        Class.forName("com.mysql.cj.jdbc.Driver");
+       
             
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        Connection conn = DB.getConnection();
         PreparedStatement stmt = conn.prepareStatement(getTasks);
 
         stmt.setInt(1, projectId);

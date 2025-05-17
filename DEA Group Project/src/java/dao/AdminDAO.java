@@ -1,8 +1,10 @@
 package dao;
 
-import com.nsbm.model.Admin;
-import com.nsbm.util.DB;
+import util.DB;
 import java.sql.*;
+import model.Employee;
+import model.Admin;
+
 
 public class AdminDAO {
     public Admin validateAdmin(String email, String password) {
