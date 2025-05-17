@@ -5,24 +5,19 @@ import model.Project;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.*;
+import util.DB;
 
 
 
 public class AddProjectDAO {
-    private String jdbcURL = "jdbc:mysql://localhost:3306/projectmanagementdb";
-    private String jdbcUsername = "root";
-    private String jdbcPassword = "";
+  
     
     public int addProject(Project project) {
         int rowinserted = 0;
     try {
-        // Load MySQL JDBC Driver
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        // Connect to Database
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-
-        // Insert Query
+        
+         Connection conn = DB.getConnection();
+      
         String query = "INSERT INTO project(project_name,project_description,project_startdate,project_enddate,status,project_budget,client_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = conn.prepareStatement(query);
         statement.setString(1, project.getProject_name());
@@ -56,9 +51,7 @@ public class AddProjectDAO {
      public ArrayList<Project> ProjectList() {
      ArrayList<Project> projectList  = new ArrayList<>();
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+         Connection conn = DB.getConnection();
 
        String sql = "SELECT * FROM project";
 Statement statement = conn.createStatement();
@@ -93,9 +86,7 @@ while (resultSet.next()) {
          int rowdeleted = 0;
 
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        Connection conn = DB.getConnection();
 
         String sql = "DELETE FROM project WHERE project_id = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
@@ -127,8 +118,7 @@ while (resultSet.next()) {
     Project project = null;
 
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+         Connection conn = DB.getConnection();
 
         String sql = "SELECT * FROM project WHERE project_id = ?";
         PreparedStatement statement = conn.prepareStatement(sql);

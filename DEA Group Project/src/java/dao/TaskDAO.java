@@ -9,27 +9,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Task;
+import util.DB;
 
 public class TaskDAO {
-    private final String jdbcURL = "jdbc:mysql://localhost:3306/projectmanagementdb";
-    private final String jdbcUsername = "root";
-    private final String jdbcPassword = "";
+   
     
     public void insertTask(Task task) throws ClassNotFoundException, SQLException{
         String InsertTask = "INSERT INTO tasks (task_name, task_description, "
                 + "project_id, employee_id, task_status, task_deadline) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+         Connection conn = DB.getConnection();
         PreparedStatement stmt = conn.prepareStatement(InsertTask);
 
-        stmt.setString(1, task.getTaskName());
-        stmt.setString(2, task.getTaskDescription());
-        stmt.setInt(3, task.getProjectId());
-        stmt.setInt(4, task.getEmployeeId());
-        stmt.setString(5, task.getTaskStatus());
-        stmt.setObject(6, task.getTaskDeadline());
+        stmt.setString(1, task.getTask_name());
+        stmt.setString(2, task.getTask_description());
+        stmt.setInt(3, task.getProject_id());
+        stmt.setInt(4, task.getEmployee_id());
+        stmt.setString(5, task.getTask_status());
+        stmt.setObject(6, task.getTask_deadline());
 
         stmt.executeUpdate();
         conn.close();
@@ -39,9 +36,7 @@ public class TaskDAO {
         
         List<Task> taskList = new ArrayList<>();
         String getTasks = "select * from tasks where project_id = ?";
-        Class.forName("com.mysql.cj.jdbc.Driver");
-            
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        Connection conn = DB.getConnection();
         PreparedStatement stmt = conn.prepareStatement(getTasks);
 
         stmt.setInt(1, projectId);
@@ -49,13 +44,13 @@ public class TaskDAO {
         
         while(rs.next()){
             Task task = new Task();
-            task.setTaskId(rs.getInt("task_id"));
-            task.setTaskName(rs.getString("task_name"));
-            task.setTaskDescription(rs.getString("task_description"));
-            task.setProjectId(rs.getInt("project_id"));
-            task.setEmployeeId(rs.getInt("employee_id"));
-            task.setTaskStatus(rs.getString("task_status"));
-            task.setTaskDeadline(rs.getDate("task_deadline").toLocalDate());
+            task.setTask_id(rs.getInt("task_id"));
+            task.setTask_name(rs.getString("task_name"));
+            task.setTask_description(rs.getString("task_description"));
+            task.setProject_id(rs.getInt("project_id"));
+            task.setEmployee_id(rs.getInt("employee_id"));
+            task.setTask_description(rs.getString("task_status"));
+            task.setTask_deadline(rs.getDate("task_deadline").toLocalDate());
             taskList.add(task);
         }
         
@@ -64,9 +59,9 @@ public class TaskDAO {
 
     public Task getTaskById(int taskId) throws ClassNotFoundException, SQLException {
         String query = "SELECT * FROM tasks WHERE task_id = ?";
-        Class.forName("com.mysql.cj.jdbc.Driver");
+       
 
-        try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        try ( Connection conn = DB.getConnection();
             PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, taskId);
@@ -74,13 +69,13 @@ public class TaskDAO {
 
             if (rs.next()) {
                 Task task = new Task();
-                task.setTaskId(rs.getInt("task_id"));
-                task.setTaskName(rs.getString("task_name"));
-                task.setTaskDescription(rs.getString("task_description"));
-                task.setProjectId(rs.getInt("project_id"));
-                task.setEmployeeId(rs.getInt("employee_id"));
-                task.setTaskStatus(rs.getString("task_status"));
-                task.setTaskDeadline(rs.getDate("task_deadline").toLocalDate());
+                task.setTask_id(rs.getInt("task_id"));
+                task.setTask_name(rs.getString("task_name"));
+                task.setTask_description(rs.getString("task_description"));
+                task.setProject_id(rs.getInt("project_id"));
+                task.setEmployee_id(rs.getInt("employee_id"));
+                task.setTask_status(rs.getString("task_status"));
+                task.setTask_deadline(rs.getDate("task_deadline").toLocalDate());
                 return task;
             } else {
                 return null;
@@ -91,15 +86,15 @@ public class TaskDAO {
     public void updateTask(Task task) throws SQLException, ClassNotFoundException {
         String query = "UPDATE tasks SET task_name = ?, task_description = ?, task_status = ?, task_deadline = ? WHERE task_id = ?";
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+       
+        try ( Connection conn = DB.getConnection();
             PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            stmt.setString(1, task.getTaskName());
-            stmt.setString(2, task.getTaskDescription());
-            stmt.setString(3, task.getTaskStatus());
-            stmt.setObject(4, task.getTaskDeadline());
-            stmt.setInt(5, task.getTaskId());
+            stmt.setString(1, task.getTask_name());
+            stmt.setString(2, task.getTask_description());
+            stmt.setString(3, task.getTask_status());
+            stmt.setObject(4, task.getTask_deadline());
+            stmt.setInt(5, task.getTask_id());
 
             stmt.executeUpdate();
         }
@@ -109,7 +104,7 @@ public class TaskDAO {
         String query = "DELETE FROM tasks WHERE task_id = ?";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        try ( Connection conn = DB.getConnection();
             PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, taskId);
