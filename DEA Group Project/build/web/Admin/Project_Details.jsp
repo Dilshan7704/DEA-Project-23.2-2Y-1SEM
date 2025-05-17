@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.nsbm.model.Client, com.nsbm.model.Project, java.util.List" %>
+<%@page import="model.Client, model.Project, java.util.List" %>
 <!DOCTYPE html>
 <html>
     <head>

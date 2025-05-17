@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.nsbm.model.Client, com.nsbm.dao.clientDAO" %>
+<%@page import="model.Client, dao.clientDAO" %>
 <!DOCTYPE html>
 <html>
     <head>
