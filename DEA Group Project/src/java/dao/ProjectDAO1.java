@@ -1,7 +1,7 @@
 package dao;
 
-import com.nsbm.model.Project;
-import com.nsbm.util.DB;
+import model.Project;
+import util.DB;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,9 @@ public class ProjectDAO1 {
                 project.setProjectId(rs.getInt("project_id"));
                 project.setProjectName(rs.getString("project_name"));
                 project.setProjectDescription(rs.getString("project_description"));
-                project.setProjectStartDate(rs.getDate("project_startdate"));
-                project.setProjectEndDate(rs.getDate("project_enddate"));
-                project.setStatus(rs.getString("status"));
+                project.setProjectStartDate(rs.getDate("project_startdate").toLocalDate());
+                project.setProjectEndDate(rs.getDate("project_enddate").toLocalDate());
+                project.setProjectStatus(rs.getString("status"));
                 project.setProjectBudget(rs.getFloat("project_budget"));
                 project.setClientId(rs.getInt("client_id"));
                 projects.add(project);

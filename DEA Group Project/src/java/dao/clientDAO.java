@@ -1,8 +1,8 @@
 
 package dao;
 
-import com.nsbm.model.Client;
-import com.nsbm.util.DB;
+import model.Client;
+import util.DB;
 import java.sql.Connection;
 import java.sql.*;
 import java.util.ArrayList;

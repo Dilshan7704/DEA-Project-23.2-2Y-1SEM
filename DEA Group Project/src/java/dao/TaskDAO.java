@@ -12,9 +12,6 @@ import model.Task;
 import util.DB;
 
 public class TaskDAO {
-    private final String jdbcURL = "jdbc:mysql://localhost:3306/projectmanagementdb";
-    private final String jdbcUsername = "root";
-    private final String jdbcPassword = "";
     
     public void insertTask(Task task) throws ClassNotFoundException, SQLException{
         String InsertTask = "INSERT INTO tasks (task_name, task_description, "
