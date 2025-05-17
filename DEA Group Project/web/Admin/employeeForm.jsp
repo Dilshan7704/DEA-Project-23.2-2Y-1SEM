@@ -52,6 +52,11 @@
              <label for="email" class="form-label">Email:</label><br>
              <input type="email" id="email" name="email" class="form-control" required><br><br>
              </div>
+<!--            today-->
+             <div class="mb-1">
+             <label for="password" class="form-label">password</label><br>
+             <input type="password" id="password" name="password" class="form-control" required><br><br>
+             </div>
             
             <div class="mb-1">
              <label for="phone" class="form-label">Phone Number:</label><br>
