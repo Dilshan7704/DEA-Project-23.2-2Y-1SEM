@@ -2,6 +2,27 @@ package model;
 
 public class Employee {
 
+//    public Employee(int employee_Id, String employee_name, String employee_email,
+//                String employee_password, String department,
+//                byte[] profilePicture, int phone) {
+//        this.employee_Id = employee_Id;
+//        this.employee_name = employee_name;
+//        this.employee_email = employee_email;
+//        this.employee_password = employee_password;
+//        this.department = department;
+//        this.profilePicture = profilePicture;
+//        this.phone = phone;
+//    }
+    
+    public Employee(int employee_Id, String employee_name, String employee_email,
+                int phone, String department) {
+        this.employee_Id = employee_Id;
+        this.employee_name = employee_name;
+        this.employee_email = employee_email;
+        this.department = department;
+        this.phone = phone;
+    }
+
     public int getEmployee_Id() {
         return employee_Id;
     }

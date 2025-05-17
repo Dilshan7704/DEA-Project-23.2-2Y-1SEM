@@ -39,13 +39,9 @@ public class EditEmployeeServlet extends HttpServlet {
         dispatcher.forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(EditEmployeeServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-       
-         
+        }     
     }
 
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -59,7 +55,7 @@ public class EditEmployeeServlet extends HttpServlet {
         Part filePart = request.getPart("profilePicture");
         
 
-         Employee updatedEmp = new Employee(id,fullname, email, phone, department);
+        Employee updatedEmp = new Employee(id,fullname, email, phone, department);
     
     
         if (filePart != null && filePart.getSize() > 0) {
@@ -76,10 +72,9 @@ public class EditEmployeeServlet extends HttpServlet {
             updatedEmp.setProfilePicture(existing.getProfilePicture());
         }
 
-    employeeDAO.updateEmployee(id, updatedEmp);
+        employeeDAO.updateEmployee(id, updatedEmp);
 
-    response.sendRedirect("EmployeeServlet");
-        
+        response.sendRedirect("EmployeeServlet");
     }
  
     @Override
