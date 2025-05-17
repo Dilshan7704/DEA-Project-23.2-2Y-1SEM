@@ -3,7 +3,7 @@ package controller;
 import dao.ProjectDAO;
 import dao.clientDAO;
 import model.Client;
-import com.nsbm.model.Project;
+import model.Project;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
