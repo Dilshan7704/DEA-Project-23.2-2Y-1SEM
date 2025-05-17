@@ -134,6 +134,7 @@ public class EmployeeDAO {
                 resultSet.getInt("id"),
                 resultSet.getString("fullname"),
                 resultSet.getString("email"),
+                resultSet.getString("password"),    
                 resultSet.getInt("phone"),
                 resultSet.getString("department"),
                 resultSet.getBytes("profile_picture")
