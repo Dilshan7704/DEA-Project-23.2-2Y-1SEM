@@ -62,7 +62,15 @@
                                     <button type="submit" class="btn">Edit</button>
                                 </form>
                             </td>
-                            <td><a href="DeleteTaskServlet">Edit</a>></td>
+                            <td>
+                                <form action="DeleteTaskServlet" method="get">
+                                    <input type="hidden" name="taskId" value="<%= task.getTaskId() %>" />
+                                    <button type="submit" 
+                                            onclick="return confirm('Are you sure you want to delete this task?');" class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                 <%  } } %>
             </table>
