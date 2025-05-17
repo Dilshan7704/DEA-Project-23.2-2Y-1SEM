@@ -1,10 +1,10 @@
 
 package controller;
 
-import com.project.dao.AddProjectDAO;
-import com.project.dao.AssignEmployeeDAO;
-import com.project.model.Project;
-import com.project.model.ProjectAssign;
+import dao.AddProjectDAO;
+import dao.AssignEmployeeDAO;
+import model.Project;
+import model.ProjectAssign;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
