@@ -1,6 +1,6 @@
 package controller;
 
-import com.nsbm.dao.clientDAO;
+import dao.clientDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

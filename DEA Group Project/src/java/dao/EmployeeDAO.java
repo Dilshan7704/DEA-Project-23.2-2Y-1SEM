@@ -1,8 +1,8 @@
 package dao;
 
-import com.nsbm.model.Employee;
-import com.nsbm.util.DB;
 import java.sql.*;
+import model.Employee;
+import util.DB;
 
 public class EmployeeDAO {
     public Employee validateEmployee(String email, String password) {

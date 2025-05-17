@@ -157,9 +157,9 @@
     <body>
         <div class="layout-wrapper layout-content-navbar">
             <div class="layout-container">
-                <%@include file="components/menubar.jsp" %>
+                <%@include file="../components/menubar.jsp" %>
                 <div class="layout-page">
-                    <%@include file="components/navbar.jsp" %>
+                    <%@include file="../components/navbar.jsp" %>
                     <div class="content-wrapper">
                         <div class="container-xxl flex-grow-1 container-p-y">
                             <div class="layout-demo-wrapper">
@@ -217,7 +217,7 @@
                                 </div>
                             </div>
                         </div>
-                        <%@include file="components/footer.jsp" %>
+                        <%@include file="../components/footer.jsp" %>
                         <div class="content-backdrop fade"></div>
                     </div>
                 </div>

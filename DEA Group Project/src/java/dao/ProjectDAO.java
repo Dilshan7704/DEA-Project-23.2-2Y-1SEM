@@ -8,19 +8,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Project;
+import util.DB;
 
 public class ProjectDAO {
-    private final String jdbcURL = "jdbc:mysql://localhost:3306/projectmanagementdb";
-    private final String jdbcUsername = "root";
-    private final String jdbcPassword = "";
+   
     
     public List<Project> listProjects() throws ClassNotFoundException, SQLException {
         
         List<Project> projectList = new ArrayList<>();
         String getProjects = "select * from project";
-        Class.forName("com.mysql.cj.jdbc.Driver");
-            
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        
+       Connection conn = DB.getConnection();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(getProjects);
         

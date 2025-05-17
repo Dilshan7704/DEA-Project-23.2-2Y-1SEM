@@ -1,11 +1,11 @@
 package controller;
 
-import com.nsbm.dao.AdminDAO;
-import com.nsbm.dao.EmployeeDAO;
-import com.nsbm.dao.clientDAO;
-import com.nsbm.model.Admin;
-import com.nsbm.model.Client;
-import com.nsbm.model.Employee;
+import dao.AdminDAO;
+import dao.EmployeeDAO;
+import dao.clientDAO;
+import model.Admin;
+import model.Client;
+import model.Employee;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
