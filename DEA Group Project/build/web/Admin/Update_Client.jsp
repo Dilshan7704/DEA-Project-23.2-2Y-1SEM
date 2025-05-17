@@ -176,33 +176,33 @@
                                     %>
                                     
                                     <form action="UpdateClientServlet" method="post">
-                                        <input type="hidden" name="id" value="<%= client != null ? client.getId() : "" %>">
+                                        <input type="hidden" name="id" value="<%= client != null ? client.getClient_id() : "" %>">
                                         
                                         <div class="form-group">
                                             <label for="name">Full Name</label>
                                             <input type="text" id="name" name="name" 
-                                                   value="<%= client != null ? client.getName() : "" %>" 
+                                                   value="<%= client != null ? client.getClient_name() : "" %>" 
                                                    placeholder="Enter client's full name" required>
                                         </div>
                                         
                                         <div class="form-group">
                                             <label for="email">Email Address</label>
                                             <input type="email" id="email" name="email" 
-                                                   value="<%= client != null ? client.getEmail() : "" %>" 
+                                                   value="<%= client != null ? client.getClient_email() : "" %>" 
                                                    placeholder="Enter client's email" required>
                                         </div>
                                         
                                         <div class="form-group">
                                             <label for="phone_no">Phone Number</label>
                                             <input type="text" id="phone_no" name="phone_no" 
-                                                   value="<%= client != null ? client.getPhone_no() : "" %>" 
+                                                   value="<%= client != null ? client.getClient_phoneno() : "" %>" 
                                                    placeholder="Enter client's phone number" required>
                                         </div>
                                         
                                         <div class="form-group">
                                             <label for="password">Password</label>
                                             <input type="password" id="password" name="password" 
-                                                   value="<%= client != null ? client.getPassword() : "" %>" 
+                                                   value="<%= client != null ? client.getClient_password() : "" %>" 
                                                    placeholder="Update password" required>
                                         </div>
                                         

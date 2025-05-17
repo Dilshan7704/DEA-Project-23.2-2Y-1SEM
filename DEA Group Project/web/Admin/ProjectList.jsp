@@ -59,17 +59,17 @@
                     for (Project project : projectList) {
                 %>
                     <tr>
-                        <td><%= project.getProjectId() %></td>
-                        <td><%= project.getProjectName() %></td>
-                        <td><%= project.getProjectDescription() %></td>
-                        <td><%= project.getProjectStartDate() %></td>
-                        <td><%= project.getProjectEndDate() %></td>
-                        <td><%= project.getProjectStatus() %></td>
-                        <td><%= project.getProjectBudget() %></td>
-                        <td><%= project.getClientId() %></td>
+                        <td><%= project.getProject_id() %></td>
+                        <td><%= project.getProject_name() %></td>
+                        <td><%= project.getProject_description() %></td>
+                        <td><%= project.getProject_startdate() %></td>
+                        <td><%= project.getProject_enddate() %></td>
+                        <td><%= project.getStatus() %></td>
+                        <td><%= project.getProject_budget() %></td>
+                        <td><%= project.getClient_id() %></td>
                         <td>
                             <form action="TaskServlet" method="get">
-                                <input type="hidden" name="projectId" value="<%= project.getProjectId() %>" />
+                                <input type="hidden" name="projectId" value="<%= project.getProject_id() %>" />
                                 <button type="submit" class="btn">View Tasks</button>
                             </form>
                         </td>

@@ -199,19 +199,19 @@
                                         <table class="detail-table">
                                             <tr>
                                                 <th>Client ID</th>
-                                                <td><%= client.getId() %></td>
+                                                <td><%= client.getClient_id() %></td>
                                             </tr>
                                             <tr>
                                                 <th>Name</th>
-                                                <td><%= client.getName() %></td>
+                                                <td><%= client.getClient_name() %></td>
                                             </tr>
                                             <tr>
                                                 <th>Email</th>
-                                                <td><%= client.getEmail() %></td>
+                                                <td><%= client.getClient_email() %></td>
                                             </tr>
                                             <tr>
                                                 <th>Phone Number</th>
-                                                <td><%= client.getPhone_no() %></td>
+                                                <td><%= client.getClient_phoneno() %></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -228,23 +228,23 @@
                                                 <table class="detail-table">
                                                     <tr>
                                                         <th>Project ID</th>
-                                                        <td><%= project.getProjectId() %></td>
+                                                        <td><%= project.getProject_id() %></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Project Name</th>
-                                                        <td><%= project.getProjectName() %></td>
+                                                        <td><%= project.getProject_name() %></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Description</th>
-                                                        <td><%= project.getProjectDescription() %></td>
+                                                        <td><%= project.getProject_description() %></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Start Date</th>
-                                                        <td><%= project.getProjectStartDate() %></td>
+                                                        <td><%= project.getProject_startdate() %></td>
                                                     </tr>
                                                     <tr>
                                                         <th>End Date</th>
-                                                        <td><%= project.getProjectEndDate() %></td>
+                                                        <td><%= project.getProject_enddate() %></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Status</th>
@@ -257,7 +257,7 @@
                                                     <tr>
                                                         <th>Budget (LKR)</th>
                                                         <td class="budget-amount">
-                                                            <%= String.format("%,.2f", project.getProjectBudget()) %>
+                                                            <%= String.format("%,.2f", project.getProject_budget()) %>
                                                         </td>
                                                     </tr>
                                                 </table>

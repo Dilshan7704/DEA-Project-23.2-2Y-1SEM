@@ -97,17 +97,17 @@
           for (Client client : clients) { 
       %>
         <tr class="align-middle" style="height: 60px;">  <!-- Increased row height -->
-          <td class="text-center"><%= client.getId() %></td>
-          <td><%= client.getName() %></td>
-          <td><a href="mailto:<%= client.getEmail() %>"><%= client.getEmail() %></a></td>
-          <td><%= client.getPhone_no() %></td>
+          <td class="text-center"><%= client.getClient_id() %></td>
+          <td><%= client.getClient_name() %></td>
+          <td><a href="mailto:<%= client.getClient_email() %>"><%= client.getClient_email() %></a></td>
+          <td><%= client.getClient_phoneno() %></td>
           <td class="text-center">
             <div class="d-flex gap-3 justify-content-center">  <!-- Increased gap between buttons -->
-              <a href="Update_Client.jsp?id=<%= client.getId() %>" class="btn btn-primary px-3 py-1">  <!-- Larger buttons -->
+              <a href="Update_Client.jsp?id=<%= client.getClient_id() %>" class="btn btn-primary px-3 py-1">  <!-- Larger buttons -->
                 <i class="fas fa-edit me-2"></i> Update  <!-- Increased icon spacing -->
               </a>
               <form action="DeleteClientServlet" method="post" class="d-inline">
-                <input type="hidden" name="id" value="<%= client.getId() %>">
+                <input type="hidden" name="id" value="<%= client.getClient_id() %>">
                 <button type="submit" class="btn btn-danger px-3 py-1" onclick="return confirmDelete()">
                   <i class="fas fa-trash-alt me-2"></i> Delete
                 </button>
@@ -115,7 +115,7 @@
             </div>
           </td>
           <td class="text-center">
-            <a href="ProjectDetailsServlet?id=<%= client.getId() %>" class="btn btn-secondary px-3 py-1">
+            <a href="ProjectDetailsServlet?id=<%= client.getClient_id() %>" class="btn btn-secondary px-3 py-1">
               <i class="fas fa-eye me-2"></i> View
             </a>
           </td>
