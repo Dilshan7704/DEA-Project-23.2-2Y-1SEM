@@ -33,9 +33,36 @@ public class Employee {
     public void setEmployee_password(String employee_password) {
         this.employee_password = employee_password;
     }
+
+    public int getPhone() {
+        return phone;
+    }
+ 
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+ 
+    public String getDepartment() {
+        return department;
+    }
+ 
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+    
     private int employee_Id;
     private String employee_name;
     private String employee_email;
     private String employee_password;
+    private String department;
+    private byte[] profilePicture;
+    private int phone;
 
 }
