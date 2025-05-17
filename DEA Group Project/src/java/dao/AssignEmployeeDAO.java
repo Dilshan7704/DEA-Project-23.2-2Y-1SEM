@@ -1,7 +1,7 @@
-package com.project.dao;
+package dao;
 
-import com.project.model.Project;
-import com.project.model.ProjectAssign;
+import model.Project;
+import model.ProjectAssign;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
