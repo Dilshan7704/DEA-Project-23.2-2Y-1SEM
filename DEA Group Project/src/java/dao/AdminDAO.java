@@ -19,9 +19,9 @@ public class AdminDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 admin = new Admin();
-                admin.setAdminId(rs.getInt("admin_id"));
-                admin.setEmail(rs.getString("admin_email"));
-                admin.setPassword(rs.getString("admin_password"));
+                admin.setAdmin_Id(rs.getInt("admin_id"));
+                admin.setAdmin_email(rs.getString("admin_email"));
+                admin.setAdmin_password(rs.getString("admin_password"));
             }
         } catch (Exception e) {
             e.printStackTrace();

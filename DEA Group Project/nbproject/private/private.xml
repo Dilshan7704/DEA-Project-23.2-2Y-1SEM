@@ -2,6 +2,29 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/dao/ProjectDAO1.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/dao/TaskDAO.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/controller/ProjectServlet.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/dao/EmployeeDAO.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/model/Employee.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/controller/UpdateTaskServlet.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/controller/UpdateClientServlet.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/dao/clientDAO.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/dao/AdminDAO.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/controller/ViewClientServlet.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/web/Admin/ProjectList.jsp</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/controller/AddClientServlet.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/controller/TaskServlet.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/dao/ProjectDAO.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/model/Project.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/controller/DeleteClientServlet.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/model/Client.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/model/Task.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/model/Admin.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/web/Admin/Update_Client.jsp</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/controller/LoginServlet.java</file>
+            <file>file:/C:/Users/DELL/Desktop/cal/Python_Mini_Games/DEA-Project-23.2-2Y-1SEM/DEA%20Group%20Project/src/java/controller/ProjectDetailsServlet.java</file>
+        </group>
     </open-files>
 </project-private>
