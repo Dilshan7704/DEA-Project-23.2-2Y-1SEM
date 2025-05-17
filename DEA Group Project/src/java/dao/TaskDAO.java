@@ -22,12 +22,12 @@ public class TaskDAO {
         Connection conn = DB.getConnection();
         PreparedStatement stmt = conn.prepareStatement(InsertTask);
 
-        stmt.setString(1, task.getTaskName());
-        stmt.setString(2, task.getTaskDescription());
-        stmt.setInt(3, task.getProjectId());
-        stmt.setInt(4, task.getEmployeeId());
-        stmt.setString(5, task.getTaskStatus());
-        stmt.setObject(6, task.getTaskDeadline());
+        stmt.setString(1, task.getTask_name());
+        stmt.setString(2, task.getTask_description());
+        stmt.setInt(3, task.getTask_id());
+        stmt.setInt(4, task.getEmployee_id());
+        stmt.setString(5, task.getTask_status());
+        stmt.setObject(6, task.getTask_deadline());
 
         stmt.executeUpdate();
         conn.close();
@@ -47,13 +47,13 @@ public class TaskDAO {
         
         while(rs.next()){
             Task task = new Task();
-            task.setTaskId(rs.getInt("task_id"));
-            task.setTaskName(rs.getString("task_name"));
-            task.setTaskDescription(rs.getString("task_description"));
-            task.setProjectId(rs.getInt("project_id"));
-            task.setEmployeeId(rs.getInt("employee_id"));
-            task.setTaskStatus(rs.getString("task_status"));
-            task.setTaskDeadline(rs.getDate("task_deadline").toLocalDate());
+            task.setTask_id(rs.getInt("task_id"));
+            task.setTask_name(rs.getString("task_name"));
+            task.setTask_description(rs.getString("task_description"));
+            task.setProject_id(rs.getInt("project_id"));
+            task.setEmployee_id(rs.getInt("employee_id"));
+            task.setTask_status(rs.getString("task_status"));
+            task.setTask_deadline(rs.getDate("task_deadline").toLocalDate());
             taskList.add(task);
         }
         
