@@ -35,6 +35,7 @@ public class EmployeeServlet extends HttpServlet {
 
         String fullname = request.getParameter("fullname");
         String email = request.getParameter("email");
+        String password = request.getParameter("password");
         int phone = Integer.parseInt(request.getParameter("phone"));
         String department = request.getParameter("department");
         Part filePart = request.getPart("profilePicture");
@@ -43,6 +44,7 @@ public class EmployeeServlet extends HttpServlet {
         Employee employee = new Employee();
         employee.setEmployee_name(fullname);
         employee.setEmployee_email(email);
+        employee.setEmployee_password(password);
         employee.setPhone(phone);
         employee.setDepartment(department);
         employee.setProfilePicture(profilePicture);
