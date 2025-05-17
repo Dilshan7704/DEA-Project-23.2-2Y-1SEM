@@ -34,6 +34,7 @@
         <th>End Date</th>
         <th>Status</th>
         <th>Actions</th>
+        <th>Assign</th>
         <th>View</th>
       </tr>
     </thead>
@@ -48,8 +49,11 @@
                 <td>${project.project_enddate}</td>
                 <td>${project.status}</td>
                 <td>
-                    <a href="UpdateProjectServlet?project_id=${project.id}"><Button class="btn btn-success ">Update</Button></a>
-                    <a href="DeleteProjectServlet?project_id=${project.id}"><Button class="btn btn-danger">Delete</Button></a>
+                    <a href="UpdateProjectServlet?project_id=${project.id}"><Button class="btn btn-success sm">Update</Button></a>
+                    <a href="DeleteProjectServlet?project_id=${project.id}"><Button class="btn btn-danger sm">Delete</Button></a>
+                </td>
+                <td>
+                    <a href="assignEmployee.jsp?project_id=${project.id}"><Button class="btn xs btn-primary">Assign</Button></a>
                 </td>
                 <td>
                     <a href="viewProject.jsp?project_id=${project.id}"><img src="components/view_icon.svg"></a>
