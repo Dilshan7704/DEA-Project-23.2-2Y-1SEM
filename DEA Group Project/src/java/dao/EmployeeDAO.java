@@ -131,7 +131,8 @@ public class EmployeeDAO {
     String sql = "SELECT * FROM employee WHERE id = ?";
     try {
         
-        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+       Connection conn = DB.getConnection();
+       PreparedStatement statement = conn.prepareStatement(sql);
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
 
