@@ -1,8 +1,8 @@
 package controller;
 
-import com.nsbm.dao.ProjectDAO;
-import com.nsbm.dao.clientDAO;
-import com.nsbm.model.Client;
+import dao.ProjectDAO;
+import dao.clientDAO;
+import model.Client;
 import com.nsbm.model.Project;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

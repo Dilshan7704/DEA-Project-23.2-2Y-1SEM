@@ -1,7 +1,7 @@
 package controller;
 
-import com.nsbm.dao.clientDAO;
-import com.nsbm.model.Client;
+import dao.clientDAO;
+import model.Client;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
