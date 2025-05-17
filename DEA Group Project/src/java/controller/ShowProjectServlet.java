@@ -1,8 +1,8 @@
 
 package controller;
 
-import com.project.dao.AddProjectDAO;
-import com.project.model.Project;
+import dao.AddProjectDAO;
+import model.Project;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
