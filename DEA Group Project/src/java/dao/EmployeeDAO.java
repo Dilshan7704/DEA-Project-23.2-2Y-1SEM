@@ -1,6 +1,8 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import model.Employee;
 import util.DB;
 
@@ -29,17 +31,20 @@ public class EmployeeDAO {
     }
 
     public void insertEmployee(Employee employee) {
-        String sql = "INSERT INTO employee (fullname, email, phone, department,profile_picture) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO employee (employee_name,employee_email,employee_password, phone, department,profile_picture) VALUES (?, ?, ?, ?, ?)";
         try {
             
-            PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-            statement.setString(1, employee.getFullname());
-            statement.setString(2, employee.getEmail());
-            statement.setInt(3, employee.getPhone());
-            statement.setString(4, employee.getDepartment());
-            statement.setBytes(5, employee.getProfilePicture());
+             Connection conn = DB.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+           
+            statement.setString(1, employee.getEmployee_name());
+            statement.setString(2, employee.getEmployee_email());
+            statement.setString(3, employee.getEmployee_password());
+            statement.setInt(4, employee.getPhone());
+            statement.setString(5, employee.getDepartment());
+            statement.setBytes(6, employee.getProfilePicture());
             statement.executeUpdate();
-            
+      
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -50,17 +55,20 @@ public class EmployeeDAO {
         String sql = "SELECT * FROM employee";
         try {
             
-            Statement statement = jdbcConnection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            Connection conn = DB.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet resultSet = stmt.executeQuery(sql);
 
             while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String fullname = resultSet.getString("fullname");
-                String email = resultSet.getString("email");
+                
+                int id = resultSet.getInt("employee_id");
+                String fullname = resultSet.getString("employee_name");
+                String email = resultSet.getString("employee_email");
+                String password = resultSet.getString("employee_password");
                 int phone = resultSet.getInt("phone");
                 String department = resultSet.getString("department");
                 byte[] profilePicture = resultSet.getBytes("profile_picture");
-                employees.add(new Employee(id,fullname, email, phone, department,profilePicture));
+                employees.add(new Employee(id,fullname, email,password, phone, department,profilePicture));
             }
             
         } catch (SQLException e) {
@@ -77,7 +85,8 @@ public class EmployeeDAO {
     String sql = "DELETE FROM employee WHERE id = ?";
     try {
         
-        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        Connection conn = DB.getConnection();
+        PreparedStatement statement = conn.prepareStatement(sql);
         statement.setInt(1, id);
 
         boolean rowDeleted = statement.executeUpdate() > 0;
@@ -93,16 +102,18 @@ public class EmployeeDAO {
     
     
     public boolean updateEmployee(int originalId, Employee emp) {
-    String sql = "UPDATE employee SET fullname=?, email=?, phone=?, department=?, profile_picture=? WHERE id=?";
+    String sql = "UPDATE employee SET employee_name=?, employee_email=?,employee_password=?, phone=?, department=?, profile_picture=? WHERE id=?";
     try {
         
-        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-        statement.setString(1, emp.getFullname());
-        statement.setString(2, emp.getEmail());
-        statement.setInt(3, emp.getPhone());
-        statement.setString(4, emp.getDepartment());
-        statement.setBytes(5, emp.getProfilePicture());
-        statement.setInt(6, originalId);
+        Connection conn = DB.getConnection();
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, emp.getEmployee_name());
+        statement.setString(2, emp.getEmployee_email());
+        statement.setString(3, emp.getEmployee_password());
+        statement.setInt(4, emp.getPhone());
+        statement.setString(5, emp.getDepartment());
+        statement.setBytes(6, emp.getProfilePicture());
+        statement.setInt(7, originalId);
 
         boolean rowUpdated = statement.executeUpdate() > 0;
         statement.close();
