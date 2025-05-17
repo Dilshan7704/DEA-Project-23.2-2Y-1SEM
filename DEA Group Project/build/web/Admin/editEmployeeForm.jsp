@@ -36,6 +36,9 @@
         <label for="email" class="form-label">Email:</label>
         <input type="email" id="email" name="email" class="form-control" value="${employee.email}" required>
     </div>
+    <label for="password" class="form-label">password</label><br>
+             <input type="password" id="password" name="password" class="form-control" value="${employee.password}" required><br><br>
+             </div>
     
     <div class="mb-3">
         <label for="phone" class="form-label">Phone Number:</label>
