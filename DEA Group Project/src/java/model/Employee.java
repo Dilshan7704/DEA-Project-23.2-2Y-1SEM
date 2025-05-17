@@ -32,6 +32,19 @@ public class Employee {
         this.phone = phone;
         this.profilePicture = profilePicture;
     }
+
+    
+    
+      public Employee(int employee_Id, String employee_name, String employee_email,
+                String employee_password, int phone, String department ) {
+        this.employee_Id = employee_Id;
+        this.employee_name = employee_name;
+        this.employee_email = employee_email;
+        this.employee_password = employee_password;
+        this.department = department;
+        
+        this.phone = phone;
+    }
     
     public Employee(){}
 

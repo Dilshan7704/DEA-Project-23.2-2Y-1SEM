@@ -50,12 +50,13 @@ public class EditEmployeeServlet extends HttpServlet {
        
         String fullname = request.getParameter("fullname");
         String email = request.getParameter("email");
+        String password = request.getParameter("password");
         int phone = Integer.parseInt(request.getParameter("phone"));
         String department = request.getParameter("department");
         Part filePart = request.getPart("profilePicture");
         
 
-        Employee updatedEmp = new Employee(id,fullname, email, phone, department);
+        Employee updatedEmp = new Employee(id,fullname, email, password, phone, department);
     
     
         if (filePart != null && filePart.getSize() > 0) {
