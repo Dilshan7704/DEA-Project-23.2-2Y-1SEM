@@ -22,8 +22,8 @@ public class AddProjectServlet extends HttpServlet {
         PrintWriter out = response.getWriter();  
         String projectname = request.getParameter("projectname");
         String projectdescription = request.getParameter("projectdescription");
-        LocalDate startdate = request.getParameter("startdate");
-        LocalDate enddate = request.getParameter("enddate");
+        LocalDate startdate = LocalDate.parse(request.getParameter("startdate"));
+        LocalDate enddate = LocalDate.parse(request.getParameter("enddate"));
         String status = request.getParameter("status");
         String budget = request.getParameter("budget");
         String client = request.getParameter("client");
