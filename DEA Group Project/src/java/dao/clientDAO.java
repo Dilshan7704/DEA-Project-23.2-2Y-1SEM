@@ -192,11 +192,11 @@ public boolean deleteClient(int id) {
         Statement statement = conn.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
        while (resultSet.next()) {
-    int id = resultSet.getInt(1);
-    String name = resultSet.getString(2);
-    String email = resultSet.getString(3);
-    String phone = resultSet.getString(4);
-    String password = resultSet.getString(5);
+        int id = resultSet.getInt(1);
+        String name = resultSet.getString(2);
+        String email = resultSet.getString(3);
+        String phone = resultSet.getString(4);
+        String password = resultSet.getString(5);
     
     Client pt = new Client(id,name,email,phone);
      clientList.add(pt);

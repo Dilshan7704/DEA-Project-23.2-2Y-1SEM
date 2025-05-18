@@ -53,8 +53,18 @@ public class Client {
         this.client_password=password;
     }
     
+       public Client(int id,String name,String email,String password){
+         this.client_id=id;
+        this.client_name=name;
+        this.client_email=email;
+        this.client_password=password;
+    }
     
+     
     
+     
+     
+     
     private int client_id;
     private String client_name;
     private String client_email;
