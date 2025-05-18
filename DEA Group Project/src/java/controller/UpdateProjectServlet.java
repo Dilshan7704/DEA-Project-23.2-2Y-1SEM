@@ -16,8 +16,8 @@ public class UpdateProjectServlet extends HttpServlet {
         int projectId = Integer.parseInt(request.getParameter("project_id"));
         String projectName = request.getParameter("projectname");
         String projectDescription = request.getParameter("projectdescription");
-        LocalDate startDate = request.getParameter("startdate");
-        LocalDate endDate = request.getParameter("enddate");
+        LocalDate startDate = LocalDate.parse(request.getParameter("startdate"));
+        LocalDate endDate = LocalDate.parse(request.getParameter("enddate"));
         String status = request.getParameter("status");
         int budget = Integer.parseInt(request.getParameter("budget"));
 
