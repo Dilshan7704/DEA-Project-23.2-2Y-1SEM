@@ -1,3 +1,4 @@
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,9 +9,9 @@
 <body>
     <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
-    <%@include file="components/menubar.jsp" %>
+    <%@include file="components/menubar_1.jsp" %>
     <div class="layout-page">
-    <%@include file="components/navbar.jsp" %>
+    <%@include file="components/navbar_1.jsp" %>
     <div class="content-wrapper">
         <!-- Content -->
     <div class="container-xxl flex-grow-1 container">
@@ -27,18 +28,45 @@
                 </div>
                 
                 <div class="mb-1">
-                    <label for="description" class="form-label">Description:</label><br>
-                    <textarea type="text" name="description" class="form-control" required></textarea><br>
+                    <label for="description" class="form-label">Description:</label><br><br>
                 </div>
                 
                 <div class="mb-1">
-                    <label for="employee" class="form-label">Employee:</label><br>
-                    <select class="form-select" name="employee" required>
+                    
+                        
+                        
+                    <select name="employee" id="employee" class="form-select">
                         <option value="">Select Employee</option>
-                        <option value="1">someone</option>
-                    </select>
+            <%
+                try {
+                String p_id = request.getParameter("project_id");
+                int project_id = Integer.parseInt(p_id);
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectmanagementdb", "root", "");
+                    String query1 = "SELECT * FROM projectassign WHERE project_id=?";
+                    PreparedStatement ps1 = conn.prepareStatement(query1);
+                    ps1.setInt(1, project_id);
+                    ResultSet rs1 = ps1.executeQuery();
+                    while (rs1.next()) {
+                       
+                    String query2 = "SELECT * FROM employee WHERE employee_id= ?";
+                    PreparedStatement ps2 = conn.prepareStatement(query2);
+                    ps2.setInt(1, rs1.getInt("employee_id"));
+                    ResultSet rs2 = ps2.executeQuery();
+                   while (rs2.next()) {
+            %>
+                        <option value="<%= rs1.getInt("employee_id") %>"><%= rs2.getString("employee_name") %></option>
+            <%
+                }
+                    }
+                } catch (Exception e) {
+                    out.println("Error loading clients: " + e.getMessage());
+                }
+            %>
+        </select>
                     <br>
                 </div>
+
                 
                 <div class="mb-1">
                     <label for="status" class="form-label">Status:</label><br>
@@ -62,7 +90,7 @@
     </div>
           <!--/ Layout Demo -->
     </div>
-    <%@include file="components/footer.jsp" %>
+    <%@include file="components/footer_1.jsp" %>
     <div class="content-backdrop fade"></div>
     </div>
       <!-- Content wrapper -->
