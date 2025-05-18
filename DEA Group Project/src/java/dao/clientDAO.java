@@ -148,5 +148,70 @@ public boolean deleteClient(int id) {
         }
         return client;
     }
+ public Client validateclient(String username, String password) {
+        
+        Client client = null;
+        
+         try{
+ 
+         // Load MySQL JDBC Driver
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        // Connect to Database
+        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        String sql = "SELECT * FROM client WHERE client_email=? AND client_password=?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, username);
+        statement.setString(2, password);
+        
+        ResultSet resultSet = statement.executeQuery();
+        
+         if (resultSet.next()) {
+            int id = resultSet.getInt("client_id");
+            String name = resultSet.getString("client_name");
+            String pwd = resultSet.getString("client_password");
+            String email = resultSet.getString("client_email");
+            
+            client = new Client(id,name,pwd,email);
+
+            
+        }
+         }
+         catch (Exception e) {
+        e.printStackTrace();
+        
+        
+    }
+         return client;
+    }
+  public List<Client> ClientList() {
+     ArrayList<Client> clientList  = new ArrayList<>();
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+
+        String sql = "SELECT * FROM client";
+        Statement statement = conn.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+       while (resultSet.next()) {
+    int id = resultSet.getInt(1);
+    String name = resultSet.getString(2);
+    String email = resultSet.getString(3);
+    String phone = resultSet.getString(4);
+    String password = resultSet.getString(5);
+    
+    Client pt = new Client(id,name,email,phone);
+     clientList.add(pt);
+     
+    
+}
+
+    } catch (Exception e) {
+    
+        e.printStackTrace();
+    } 
+    return clientList;
+}
     
 }
