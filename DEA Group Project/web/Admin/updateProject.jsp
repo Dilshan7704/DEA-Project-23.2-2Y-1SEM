@@ -28,22 +28,33 @@
                   <!--        2 step-->
                   <div class="card" style="width: 25rem;">
 	<div class="card-body ">
-        <form action="AddProjectServlet" method="post">
-            
+              
+      <%
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectmanagementdb", "root", "");
+                    int project_id = Integer.parseInt(request.getParameter("project_id"));
+                    String query1 = "SELECT * FROM project WHERE project_id = ?";
+                    PreparedStatement ps1 = conn.prepareStatement(query1);
+                    ps1.setInt(1, project_id);
+                    ResultSet rs = ps1.executeQuery();
+                    while (rs.next()) {
+            %>
+                        
+      <form action="UpdateProjectServlet?project_id=<%=project_id%>" method="post">
+       <input type="hidden" name="project_id" value="<%=project_id%>">     
         
 <div class="text-center text-secondary mb-4">
         <h2>Update Project</h2>
-    </div>
-      
-                      
+    </div>                      
     <div class="mb-3">
         <label for="projectname" class="form-label">Project Name:</label>
-        <input type="text" id="projectname" name="projectname" class="form-control" required value="${project.project_name}">
+        <input type="text" id="projectname" name="projectname" class="form-control" required value="<%= rs.getString("project_name") %>">
     </div>
 
     <div class="mb-3">
         <label for="projectdescription" class="form-label">Project Description:</label>
-        <input type="text" id="projectdescription" name="projectdescription" class="form-control" value="${project.project_description}">
+        <input type="text" id="projectdescription" name="projectdescription" class="form-control" value="<%= rs.getString("project_description") %>">
     </div>
 
     <div class="mb-3">
@@ -71,13 +82,20 @@
     </div>
     
     <div class="text-center">
-        <input type="submit" value="Register" class="btn btn-primary">
+        <input type="submit" value="Update" class="btn btn-primary">
         <a href="ShowProjectServlet" class="btn btn-secondary">Back to Dashboard</a>
+
     </div>
 
 </form>
 </div>
-              <!--/ Layout Demo -->
+<%
+                    }
+                } catch (Exception e) {
+                    out.println("Error loading clients: " + e.getMessage());
+                }
+            %>
+            </div>
             </div>
         <%@include file="components/footer_1.jsp" %>
         <div class="content-backdrop fade"></div>
