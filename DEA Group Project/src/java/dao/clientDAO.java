@@ -183,7 +183,7 @@ public boolean deleteClient(int id) {
   public List<Client> ClientList() {
      ArrayList<Client> clientList  = new ArrayList<>();
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        
 
        
 
