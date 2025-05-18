@@ -72,7 +72,7 @@
     
     <div class="text-center">
         <input type="submit" value="Register" class="btn btn-primary">
-        <a class="back-button" href="ShowProjectServlet"><button class="btn btn-primary">Back to Dashboard</button></a>
+        <a href="ShowProjectServlet" class="btn btn-secondary">Back to Dashboard</a>
     </div>
 
 </form>
