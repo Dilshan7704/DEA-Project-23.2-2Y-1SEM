@@ -1,11 +1,11 @@
-package com.project.controller;
+package controller;
 
-import com.project.dao.UpdateProjectDAO;
-import com.project.model.Project;
-
-import javax.servlet.*;
-import javax.servlet.http.*;
+import dao.UpdateProjectDAO;
+import model.Project;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class UpdateProjectServlet extends HttpServlet {
 
@@ -16,13 +16,13 @@ public class UpdateProjectServlet extends HttpServlet {
         int projectId = Integer.parseInt(request.getParameter("project_id"));
         String projectName = request.getParameter("projectname");
         String projectDescription = request.getParameter("projectdescription");
-        String startDate = request.getParameter("startdate");
-        String endDate = request.getParameter("enddate");
+        LocalDate startDate = request.getParameter("startdate");
+        LocalDate endDate = request.getParameter("enddate");
         String status = request.getParameter("status");
         int budget = Integer.parseInt(request.getParameter("budget"));
 
         Project updatedProject = new Project();
-        updatedProject.setId(projectId);
+        updatedProject.setProject_id(projectId);
         updatedProject.setProject_name(projectName);
         updatedProject.setProject_description(projectDescription);
         updatedProject.setProject_startdate(startDate);
