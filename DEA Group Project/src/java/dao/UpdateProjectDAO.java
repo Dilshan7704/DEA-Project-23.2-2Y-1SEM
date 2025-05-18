@@ -1,26 +1,20 @@
-package com.project.dao;
+package dao;
 
-import com.project.model.Project;
+import model.Project;
 
 import java.sql.*;
+import util.DB;
 
 public class UpdateProjectDAO {
 
-    private String jdbcURL = "jdbc:mysql://localhost:3306/projectmanagementdb";
-    private String jdbcUsername = "root";
-    private String jdbcPassword = "";
+   
     
     public int updateProject(Project project, int projectId) {
         int rowinserted = 0;
     try {
-        // Load MySQL JDBC Driver
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        // Connect to Database
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-
-        // Insert Query
+        
         String query = "UPDATE project SET project_name=?, project_description=?, project_startdate=?, project_enddate=?, status=?, project_budget=? WHERE project_id=?";
+         Connection conn = DB.getConnection();
         PreparedStatement statement = conn.prepareStatement(query);
         
         statement.setString(1, project.getProject_name());
