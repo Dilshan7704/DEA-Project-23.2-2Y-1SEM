@@ -154,12 +154,8 @@ public boolean deleteClient(int id) {
         
          try{
  
-         // Load MySQL JDBC Driver
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        // Connect to Database
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         String sql = "SELECT * FROM client WHERE client_email=? AND client_password=?";
+         Connection conn = DB.getConnection();
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, username);
         statement.setString(2, password);
@@ -189,9 +185,10 @@ public boolean deleteClient(int id) {
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+       
 
         String sql = "SELECT * FROM client";
+         Connection conn = DB.getConnection();
         Statement statement = conn.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
        while (resultSet.next()) {
