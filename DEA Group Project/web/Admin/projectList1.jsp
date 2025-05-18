@@ -50,8 +50,8 @@
                 <td>${project.status}</td>
                 <td>
                     <a href="UpdateProjectServlet?project_id=${project.id}"><Button class="btn btn-success sm">Update</Button></a>
-                    <a href="DeleteProjectServlet?project_id=${project.id}"><Button class="btn btn-danger sm">Delete</Button></a>
-                </td>
+                    <a href="DeleteProjectServlet?project_id=${project.id}" onclick="return confirm('Are you sure ou want to delete this project')"><Button class="btn btn-danger sm">Delete</Button></a>
+                </td>s
                 <td>
                     <a href="assignEmployee.jsp?project_id=${project.id}"><Button class="btn xs btn-primary">Assign</Button></a>
                 </td>
