@@ -19,10 +19,10 @@ public class UpdateProjectDAO {
         
         statement.setString(1, project.getProject_name());
         statement.setString(2, project.getProject_description());
-        statement.setString(3, project.getProject_startdate());
-        statement.setString(4, project.getProject_enddate());
+        statement.setObject(3, project.getProject_startdate());
+        statement.setObject(4, project.getProject_enddate());
         statement.setString(5, project.getStatus());
-        statement.setInt(6, project.getProject_budget());
+        statement.setFloat(6, project.getProject_budget());
         statement.setInt(7, projectId);
         
 
